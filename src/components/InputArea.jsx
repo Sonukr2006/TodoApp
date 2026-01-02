@@ -3,7 +3,7 @@ import style from "./InputArea.module.css";
 import AddButton from "./AddButton";
 import { useState } from "react";
 
-const InputArea = ({task, dis, handlleChange}) => {
+const InputArea = ({taskRef, disRef}) => {
 
 
   return (
@@ -16,11 +16,9 @@ const InputArea = ({task, dis, handlleChange}) => {
           Task :-
         </label>
         <input
-          name="task"
-          value={task || ""}
+          ref={taskRef}
           className="border border-1 p-3 border-success rounded"
           placeholder="Enter Task"
-          onChange={handlleChange}
         />
       </div>
       <div className="d-flex flex-column">
@@ -31,11 +29,9 @@ const InputArea = ({task, dis, handlleChange}) => {
           Description :-
         </label>
         <input
-          name="dis"
-          value={dis || ""}
+          ref={disRef}
           className="border border-1 p-3 rounded"
           placeholder="About task"
-          onChange={handlleChange}
         />
       </div>
     </>

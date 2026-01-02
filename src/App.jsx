@@ -3,52 +3,46 @@ import React from "react";
 import Heading from "./components/Heading";
 import Inputfeild from "./components/Inputfeild";
 import OutputField from "./components/OutputField";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Errormess from "./components/Errormess";
 import Suggestion from "./components/Suggestion";
 
 const App = () => {
   const [list, setlist] = useState([]);
-  const [task, settask] = useState();
-  const [dis, setdis] = useState();
+  const taskReference = useRef();
+  const disReference = useRef();
 
-  const handlleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "task") {
-      settask(value);
-    } else if (name === "dis") {
-      setdis(value);
-    }
-  };
-  const taskhandle = () => {
-    if (!task) {
-      if (task === "") {
-        alert("Add Task field!")
+
+  const taskhandle = (e) => {
+    if (!taskReference.current.value) {
+      if (taskReference.current.value === "") {
+        alert("Add Task field!");
       }
       return;
     }
-    if (!dis) {
+    if (!disReference.current.value) {
       if (dis === "") {
-        alert("Add Discription field! ")
+        alert("Add Discription field! ");
       }
     }
-    setlist((pre) => [...pre, { task, dis }]);
-    settask("");
-    setdis("");
+    const task = taskReference.current?.value?.trim() ?? "";
+    const dis = disReference.current?.value?.trim() ?? "";
+    setlist((prev) => [...prev, { task, dis }]);
+    disReference.current.value = "";
+    taskReference.current.value = "";
   };
+
   
   const deleteHandle = (index) => {
     setlist((prev) => prev.filter((_, i) => i !== index));
-    console.log("Delete Clicked " + index);
   };
 
   return (
     <>
       <Heading />
       <Inputfeild
-        task={task}
-        dis={dis}
-        handlleChange={handlleChange}
+        taskRef={taskReference}
+        disRef={disReference}
         Addhandle={taskhandle}
       />
       {list.length === 0 ? 
