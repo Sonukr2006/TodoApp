@@ -1,0 +1,10 @@
+
+
+.styles{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    background-color: crimson;
+    font-weight: 400;
+    margin-top: 40px;
+}

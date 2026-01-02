@@ -1,0 +1,16 @@
+.styles{
+    text-align: left;
+}
+
+.outputHeadingDiv{
+   width: 71%;
+   margin: auto;
+   margin-top: 20px;
+}
+
+.hover:hover{
+    background-color: rgb(223, 236, 236);
+}
+.hover{
+    background-color: rgb(242, 197, 143);
+}
