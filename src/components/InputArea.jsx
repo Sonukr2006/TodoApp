@@ -10,7 +10,7 @@ const InputArea = ({taskRef, disRef}) => {
     <>
       <div className="d-flex flex-column">
         <label
-          htmlFor="exampleFormControlInput1"
+          htmlFor="task"
           className={`${style.align} form-label text-primary-emphasis`}
         >
           Task :-
@@ -23,7 +23,7 @@ const InputArea = ({taskRef, disRef}) => {
       </div>
       <div className="d-flex flex-column">
         <label
-          htmlFor="exampleFormControlInput1"
+          htmlFor="discription"
           className={`${style.align} form-label text-primary-emphasis`}
         >
           Description :-
